@@ -6,6 +6,11 @@ export class NoteProvider extends Component{
     state={
         notes:[
             
+            {
+                id:'1',
+                name:'Even the all-powerful Pointing has no control about the blind texts',
+                body:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
+            },
         ]
     }
     async componentDidMount(){
@@ -20,6 +25,7 @@ export class NoteProvider extends Component{
        }
     }
     addNote=(note)=>{
+        console.log(note)
         this.setState({
             notes:[...this.state.notes,note]
         })
@@ -29,7 +35,6 @@ export class NoteProvider extends Component{
             notes:this.state.notes.filter(note=>note.id!==id)
         })
     }
-
     render(){
         return(
             <NoteContext.Provider value={{notes:this.state.notes,addNote:this.addNote,removeNote:this.removeNote}}>

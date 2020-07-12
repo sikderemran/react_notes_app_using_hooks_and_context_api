@@ -8,9 +8,8 @@ import { NoteProvider } from '../contexts/Note.context'
 import { NoteContext } from '../contexts/Note.context'
 import axios from 'axios';
 
-// const Note=(props)=>
+
 class Note extends Component{
-    // const {id,title,description}=props.note
     static contextType=NoteContext
     handleRemove=async id=>{
         try{
@@ -42,22 +41,15 @@ class Note extends Component{
             </div>
         )
     }
-    // const handleRemove=(id)=>{
-    //     props.removeNote(id);
-    // }
     
 }
 
-// const Notes=(props)=>
 class Notes extends Component{
     static contextType=NoteContext
     render(){
-        //const {notes}=this.props
+        console.log(this.context)
         return(
             <div className="col-lg-8 ">
-                {/* {notes.map(note=>(
-                    <Note key={note.id} note={note} removeNote={this.props.removeNote} title={note.title} description={note.description}/>
-                ))} */}
                 {this.context.notes.map(note=>(
                     <Note key={note.id} note={note} title={note.title} description={note.description}/>
                 ))}
@@ -67,36 +59,6 @@ class Notes extends Component{
 }
 
 class App extends Component{
-
-    // state={
-    //     notes:[
-    //         {
-    //             id:'1',
-    //             title:'Even the all-powerful Pointing has no control about the blind texts',
-    //             description:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
-    //         },
-    //         {
-    //             id:'2',
-    //             title:'second note',
-    //             description:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
-    //         },
-    //         {
-    //             id:'3',
-    //             title:'third note',
-    //             description:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.'
-    //         }
-    //     ]
-    // }
-    // addNote=(note)=>{
-    //     this.setState({
-    //         notes:[...this.state.notes,note]
-    //     })
-    // }
-    // removeNote=(id)=>{
-    //     this.setState({
-    //         notes:this.state.notes.filter(note=>note.id!==id)
-    //     })
-    // }
     render(){
         return(
             <section className="ftco-section ftco-degree-bg">
@@ -106,8 +68,6 @@ class App extends Component{
                     <Switch>
                         <Route path='/add' component={AddNote}/> 
                         <Route path='/' exact component={Notes}/>  
-                        {/* <Route path='/add' render={(props)=> <AddNote addNote={this.addNote}{...props}/>} /> 
-                        <Route path='/' exact render={()=> <Notes notes={this.state.notes} removeNote={this.removeNote}/>} />   */}
                         <Route path='/about' component={About}/> 
                         <Route component={NotFound} />
                     </Switch>

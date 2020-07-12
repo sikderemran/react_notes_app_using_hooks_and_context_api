@@ -18,6 +18,7 @@ const AddNote =(props)=>{
             ...note,
             [e.target.name]:e.target.value
         })
+        
     }
 
     const handelSubmit=async e=>{

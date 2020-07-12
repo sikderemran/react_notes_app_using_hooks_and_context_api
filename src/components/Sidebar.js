@@ -46,23 +46,10 @@ class AddNote extends Component{
             })
         const {data}=res
         this.context.addNote(data)
-        // this.context.addNote(this.state)
-        // this.props.addNote(this.state)
         this.props.history.push('/')
         }catch(e){
             console.log(e);
         }
-        // const {data}=res
-        // this.context.addNote(data)
-        // // this.context.addNote(this.state)
-        // // this.props.addNote(this.state)
-        // this.props.history.push('/')
-        // this.setState({
-        //     id:'',
-        //     title:'',
-        //     description:'',
-        //     errors:{},
-        // })
     }
     render(){
         return(
